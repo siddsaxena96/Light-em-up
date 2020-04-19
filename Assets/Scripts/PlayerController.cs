@@ -30,13 +30,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer battery;
     public Sprite[] batterystates;
 
-    public float proximityRadius;
-    public int health = 100;
-    public static bool rotateMirror = false;
-    public float rotationSpeed;
-    public Rigidbody2D nearMirror;
-
-    // Use this for initialization
     void Awake()
     {
         if (rb == null)
@@ -47,7 +40,6 @@ public class PlayerController : MonoBehaviour
         torchOn = false;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         vertical = Input.GetAxis("Vertical");
@@ -66,7 +58,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     void Update()
     {
         crossHair.position = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
@@ -84,7 +75,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //Rotation with crossHair
         Vector3 diff = (crossHair.transform.position - transform.position);
         diff.Normalize();
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
