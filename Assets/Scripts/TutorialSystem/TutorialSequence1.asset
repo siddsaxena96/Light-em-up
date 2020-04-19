@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2d22d1fdf57d34e91d7892ef870117, type: 3}
+  m_Name: TutorialSequence1
+  m_EditorClassIdentifier: 
+  tutorialSteps:
+  - instuction: 'Welcome To <br>Light '' em up : Escape from tyansylvania <br>( click
+      to continue )'
+    isClickable: 1
+  - instuction: Move the mirrors to direct light to blinking nodes <br>( Click to
+      continue )
+    isClickable: 1
+  - instuction: When near the blinking node. <br>Use Q and E to rotate the mirror
+    isClickable: 0
+  - instuction: Great ! Use WSAD to move around.<br> Go to the mirror you just activated
+    isClickable: 0
+  - instuction: Hear that ? there's vampires in the dark<br> Click to use your torch
+      and scare them away
+    isClickable: 1
+  - instuction: Awesome ! now you know everything.<br> guide the light to the final
+      portal to complete the level.
+    isClickable: 0
