@@ -9,6 +9,10 @@ TagManager:
   - Enemy
   - PlayerLightArea
   - PlayerLight
+  - GameWonScreen
+  - FinalPortal
+  - map
+  - GameOverScreen
   layers:
   - Default
   - TransparentFX
@@ -18,8 +22,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - CharacterLayer
+  - Portals
   - 
   - 
   - 
