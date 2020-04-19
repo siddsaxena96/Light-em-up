@@ -23,12 +23,11 @@ public class PlayerController : MonoBehaviour
     public float torchOnIntensity = 19.75f;
     public Sprite onSprite = null;
     public Sprite offSprite = null;
-    private bool torchOn;
-    private float timer = 0f;
+    private bool torchOn = false;
 
     [Header("Battery")]
-    [SerializeField] private SpriteRenderer battery;
-    public Sprite[] batterystates;
+    [SerializeField] private SpriteRenderer battery = null;
+    public Sprite[] batterystates = null;
 
     void Awake()
     {
@@ -56,6 +55,11 @@ public class PlayerController : MonoBehaviour
             GameObject.FindGameObjectWithTag("GameOverScreen").GetComponent<GameOver>().playm();
             Destroy(this.gameObject);
         }
+    }
+
+    public void StopPlayer()
+    {
+        rb.velocity = Vector2.zero;
     }
 
     void Update()

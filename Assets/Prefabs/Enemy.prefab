@@ -152,8 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   isTorched: 0
-  health: 100
-  proximity: 18
+  proximity: 5
   dir: {x: 1, y: 0, z: 0}
   vampire_sounds: []
 --- !u!61 &61326435411063008

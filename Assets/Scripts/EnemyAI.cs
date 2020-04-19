@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private bool isTorched;
-    [SerializeField] private float proximity;
-    [SerializeField] private Vector3 dir;
-    [SerializeField] private AudioSource[] vampire_sounds;
+    [SerializeField] private float speed = 0f;
+    [SerializeField] private bool isTorched = false;
+    [SerializeField] private float proximity = 0f;
+    [SerializeField] private Vector3 dir = Vector2.zero;
+    [SerializeField] private AudioSource[] vampire_sounds = null;
     private Vector2 source = Vector2.zero;
     private Rigidbody2D rb = null;
     private Transform player = null;
@@ -51,7 +51,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            rb.velocity = -(player.position - transform.position).normalized * Mathf.Abs(speed);
+            rb.velocity = -(player.position - transform.position).normalized * Mathf.Abs(speed) * 1.5f;
         }
 
     }
@@ -65,7 +65,7 @@ public class EnemyAI : MonoBehaviour
         }
         else if (col.tag == "map" && isTorched)
         {
-            speed = 0;
+            rb.velocity = Vector2.zero;
         }
         if (col.tag == "PlayerLightArea")
         {

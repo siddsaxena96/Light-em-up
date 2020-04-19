@@ -126,7 +126,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 30
-  m_Range: 2.62
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d51a15f4565e284b9ed96604927fb0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blinkingLight: {fileID: 108320838032389136}
 --- !u!1 &1588400923718218
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +545,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   rayCastPoint: {fileID: 1655470940353672}
+  nodeLightHandler: {fileID: 114404042817537524}
   isTouchingCrystal: 0
   isTouchingSomethingElse: 0
+  allowRotate: 0
+  forceOn: 0
   spriteChanger: {fileID: 114966779069596788}
+  onEnableEvent:
+    m_PersistentCalls:
+      m_Calls: []

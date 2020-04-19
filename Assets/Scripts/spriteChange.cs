@@ -5,11 +5,11 @@ using UnityEngine;
 public class SpriteChange : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer = null;
-    [SerializeField] private Sprite basicSprite;
-    [SerializeField] private Sprite hitSprite;
-    [SerializeField] private Material unlit;
-    [SerializeField] private Material lit;
-    [SerializeField] private SpriteRenderer[] sprites;
+    [SerializeField] private Sprite basicSprite = null;
+    [SerializeField] private Sprite hitSprite = null;
+    [SerializeField] private Material unlit = null;
+    [SerializeField] private Material lit = null;
+    [SerializeField] private SpriteRenderer[] sprites = null;
 
     public void ChangeMaterial(bool status)
     {

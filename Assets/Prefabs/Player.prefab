@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee9f613825cd604ca461aa3fbc00c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 50887036426308656}
   playerSpriteRenderer: {fileID: 212545115805825840}
   speed: 9
   torchTransform: {fileID: 4905477224858066}
@@ -341,10 +341,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5b34087ac12664040a8032aebb1401db, type: 3}
   - {fileID: 21300000, guid: d5a9e295b2d1d904eb9414b76d26b07a, type: 3}
   - {fileID: 21300000, guid: c3c035e3b40ec7c44a7915b2f6652bfb, type: 3}
-  proximityRadius: 0
-  health: 100
-  rotationSpeed: 0
-  nearMirror: {fileID: 0}
 --- !u!1 &1700341207820140
 GameObject:
   m_ObjectHideFlags: 0

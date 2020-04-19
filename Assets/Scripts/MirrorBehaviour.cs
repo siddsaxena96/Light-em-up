@@ -2,23 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class MirrorBehaviour : MonoBehaviour
 {
     [Header("Line Rendering")]
-    [SerializeField] private LineRenderer rayRender;
-    [SerializeField] private Vector3 finalpos;
-    [SerializeField] private LayerMask portalLayer;
-    [SerializeField] private GameObject rayCastPoint;
-    public bool isTouchingCrystal;
-    public bool isTouchingSomethingElse;
+    [SerializeField] private LineRenderer rayRender = null;
+    [SerializeField] private Vector3 finalpos = Vector3.zero;
+    [SerializeField] private LayerMask portalLayer = 0;
+    [SerializeField] private GameObject rayCastPoint = null;
+    [SerializeField] private LightBlink nodeLightHandler = null;
+    public bool isTouchingCrystal = false;
+    public bool isTouchingSomethingElse = false;
+    public bool allowRotate = false;
+    public bool forceOn = false;
+
     [Space]
     [SerializeField] private SpriteChange spriteChanger = null;
 
-    private Transform player;
-    private GameObject crystalHit;
-    private GameObject winPortalHit;
-    private string crystalName;
-    public bool allowRotate;
+    private Transform player = null;
+    private GameObject crystalHit = null;
+    private GameObject winPortalHit = null;
+    private string crystalName = null;
+    public UnityEngine.Events.UnityEvent onEnableEvent = null;
+
 
     void Awake()
     {
@@ -41,13 +47,22 @@ public class MirrorBehaviour : MonoBehaviour
         spriteChanger.ChangeSprite(true);
         spriteChanger.ChangeMaterial(true);
         rayRender.enabled = true;
+        onEnableEvent?.Invoke();
+        onEnableEvent?.RemoveAllListeners();
+        nodeLightHandler.IncreaseRange();
     }
 
     void OnDisable()
     {
+        if (forceOn)
+        {
+            this.enabled = true;
+            return;
+        }
         spriteChanger.ChangeSprite(false);
         spriteChanger.ChangeMaterial(false);
         rayRender.enabled = false;
+        nodeLightHandler.DecreaseRange();
         if (crystalHit != null)
         {
             crystalHit.GetComponentInChildren<MirrorBehaviour>().enabled = false;
@@ -113,5 +128,10 @@ public class MirrorBehaviour : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void StopRotation()
+    {
+        allowRotate = false;
     }
 }

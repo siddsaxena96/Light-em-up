@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class WinPortal : MonoBehaviour
 {
-    [SerializeField] private Sprite activeSprite;
-    [SerializeField] private Sprite inactiveSprite;
+    [SerializeField] private Sprite activeSprite = null;
+    [SerializeField] private Sprite inactiveSprite = null;
     [SerializeField] private bool won = false;
-    [SerializeField] private SpriteRenderer portalRenderer;
+    [SerializeField] private SpriteRenderer portalRenderer = null;
+    [SerializeField] private bool isTutorialScene = false;
 
     public void OnGameWon()
     {
@@ -25,9 +26,16 @@ public class WinPortal : MonoBehaviour
     {
         if (won && col.tag == "Player")
         {
-            GameObject.FindGameObjectWithTag("GameWonScreen").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.FindGameObjectWithTag("GameWonScreen").GetComponent<GameOver>().playm();
-            Destroy(col.gameObject);
+            if (isTutorialScene)
+            {
+                FindObjectOfType<TutorialSystem>().TutorialComplete();
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("GameWonScreen").GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.FindGameObjectWithTag("GameWonScreen").GetComponent<GameOver>().playm();
+                Destroy(col.gameObject);
+            }
         }
     }
 }
