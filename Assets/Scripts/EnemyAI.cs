@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour
                     vampire_sounds[1].Play();
                     playaudio = false;
                 }
-                rb.velocity = (player.position - transform.position).normalized * speed;
+                rb.velocity = (player.position - transform.position).normalized * Mathf.Abs(speed);
             }
             else
             {
